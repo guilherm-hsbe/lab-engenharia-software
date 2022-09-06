@@ -19,7 +19,7 @@
 
     <script type="text/javaScript">
         var array = new Array();
-        document.getElementbyId("add").addEventListener("click",function(){
+        document.getElementById("add").addEventListener("click",function(){
            array.push(document.getElementById("campoTexto").value);
            let aux1 = document.createElement("li");
            let aux2 = document.createTextNode(array[array.length-1]);
