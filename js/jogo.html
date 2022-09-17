@@ -5,146 +5,151 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <!--<script type="text/javascript" src="script.js"></script>-->
-
-        <title>Jogo</title>
+        <title>Jogo</title>  
 
         <style>
-        html {
-            font-family: sans-serif;
-        }
-        body {
-            width: 50%;
-            max-width: 800px;
-            min-width: 480px;
-            margin: 0 auto;
-        }
-        .lastResult {
-            color: white;
-            padding: 3px;
-        }
+            .lastResult {
+                color: white;
+                padding: 3px;
+            }
         </style>
     </head>
 
-    <body class="container border border-3 rounded fw-lighter bg-light shadow fs-5 position-absolute top-50 start-50 translate-middle p-4">
-        <a href="index.html" class="btn btn-sm btn-light opacity-50">...voltar</a>
+    <body class="mt-5" style="background-color:lavender">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
 
-        <div class="">
-            <h1>Jogo adivinhe o número</h1>
+                <div class="card border-0 rounded-4 shadow-lg col-4 p-3">
+                    <a href="/index.html" class="btn btn-sm btn-light opacity-75 rounded-5">Voltar</a>
 
-            <p>Nós selecionamos um número aleatório entre 1 e 100. Veja se consegue adivinhar em 10 chances ou menos. Nós lhe diremos se seu palpite foi muito alto ou muito baixo.</p>
+                    <div class="card-body">
+						<h4 class="card-title">Adivinhe o número</h4>
+						<p class="card-text">Nós selecionamos um número 
+                            aleatório entre 1 e 100. Veja se consegue 
+                            adivinhar em 10 chances ou menos. 
+                            Nós lhe diremos se seu palpite foi 
+                            muito alto ou muito baixo.</p>
+					</div>
 
-            <div class="form">
-                <label for="campoPalpite">Digite seu palpite: </label>
-                <input type="text" id="campoPalpite" class="campoPalpite form-control mt-2">
-                <input type="submit" value="Enviar palpite" class="envioPalpite form-control btn btn-outline-primary mt-4">
-            </div>
+                    <div class="form mt-2">
+                        <label for="campoPalpite">Digite seu palpite: </label>
+                        <input type="text" id="campoPalpite" class="campoPalpite form-control mt-2">
+                        <input type="submit" value="Enviar palpite" class="envioPalpite form-control btn btn-primary mt-4">
+                    </div>
 
-            <div class="resultadoParas">
-                <p class="palpites"></p>
-                <p class="ultimoResultado"></p>
-                <p class="baixoOuAlto"></p>
+                    <div class="resultadoParas shadow-sm rounded-3 p-2 mt-4">
+                        <p class="palpites fw-light ms-2"></p>
+                        <p class="ultimoResultado fw-semibold ms-2"></p>
+                        <p class="baixoOuAlto ms-2"></p>
+                        <p class="botaoReinicio ms-2"></p>
+                    </div>
+
+                    <!-- #SCRIPT -->
+                    <script>
+                        //Variáveis
+                            //Número gerado
+                        var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+                        
+                            //Referência para parágrafos
+                        var palpites = document.querySelector('.palpites');
+                        var ultimoResultado = document.querySelector('.ultimoResultado');
+                        var baixoOuAlto = document.querySelector('.baixoOuAlto');
+                        var botaoReinicio = document.querySelector('.botaoReinicio');
+                
+                            //Referência texto e envio
+                        var envioPalpite = document.querySelector('.envioPalpite');
+                        var campoPalpite = document.querySelector('.campoPalpite');
+                
+                            //Contagem dos palpites e botão reiniciar
+                        var contagemPalpites = 1;
+                        var botaoReinicio;
+                
+                        //Function - Conferir Palpite
+                        function conferirPalpite() {
+                            var palpiteUsuario = Number(campoPalpite.value); //Número palpite usuário
+                
+                            //Contagem Palpites
+                            if (contagemPalpites === 1) {
+                                palpites.textContent = 'Palpites anteriores: ';
+                            }
+                            palpites.textContent += palpiteUsuario + ' ';
+                
+                            //Acerto
+                            if (palpiteUsuario === numeroAleatorio) {
+                                ultimoResultado.textContent = 'Parabéns! Você acertou!';
+                                ultimoResultado.style.backgroundColor = 'green';
+                                baixoOuAlto.textContent = '';
+                                configFimDeJogo();
+                            }
+                
+                            //Limite Palpites
+                            else if (contagemPalpites === 10) {
+                                ultimoResultado.textContent = 'FIM DE JOGO...';
+                                baixoOuAlto.textContent = '';
+                                configFimDeJogo();
+                            }
+                
+                            //Erro
+                            else {
+                                ultimoResultado.textContent = 'Errado!';
+                                ultimoResultado.style.backgroundColor = '';
+                
+                                if(palpiteUsuario < numeroAleatorio) {
+                                    baixoOuAlto.textContent = 'Seu palpite está muito baixo!';
+                                } 
+                
+                                else if(palpiteUsuario > numeroAleatorio) {
+                                    baixoOuAlto.textContent = 'Seu palpite está muito alto!';
+                                }
+                            }
+                
+                            //Contagens
+                            contagemPalpites++;
+                            campoPalpite.value = '';
+                            campoPalpite.focus();
+                        }
+                
+                        //Ler botão "Enviar Palpite"
+                        envioPalpite.addEventListener('click', conferirPalpite);
+                
+                        //Function - Fim de Jogo
+                        function configFimDeJogo() {
+                            campoPalpite.disabled = true;
+                            envioPalpite.disabled = true;
+                            botaoReinicio = document.createElement('button');
+                            botaoReinicio.textContent = 'Iniciar novo Jogo';
+                            document.body.appendChild(botaoReinicio);
+                            botaoReinicio.addEventListener('click', reiniciarJogo);
+                        }
+                
+                        //Fuction - Reiniciar Jogo
+                        function reiniciarJogo() {
+                            contagemPalpites = 1;
+                
+                            var reiniciarParas = document.querySelectorAll('.resultadoParas p');
+                            for (var i = 0 ; i < reiniciarParas.length ; i++) {
+                                reiniciarParas[i].textContent = '';
+                            }
+                
+                            botaoReinicio.parentNode.removeChild(botaoReinicio);
+                
+                            campoPalpite.disabled = false;
+                            envioPalpite.disabled = false;
+                            campoPalpite.value = '';
+                            campoPalpite.focus();
+                
+                            ultimoResultado.style.backgroundColor = 'white';
+                
+                            numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+                        }
+                    </script>
+                </div>
+
+                <div class="col"></div>
             </div>
         </div>
     </body>
-
-    <script>
-        //Variáveis
-            //Número gerado
-        var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
-        
-            //Referência para parágrafos
-        var palpites = document.querySelector('.palpites');
-        var ultimoResultado = document.querySelector('.ultimoResultado');
-        var baixoOuAlto = document.querySelector('.baixoOuAlto');
-
-            //Referência texto e envio
-        var envioPalpite = document.querySelector('.envioPalpite');
-        var campoPalpite = document.querySelector('.campoPalpite');
-
-            //Contagem dos palpites e botão reiniciar
-        var contagemPalpites = 1;
-        var botaoReinicio;
-
-        //Function - Conferir Palpite
-        function conferirPalpite() {
-            var palpiteUsuario = Number(campoPalpite.value); //Número palpite usuário
-
-            //Contagem Palpites
-            if (contagemPalpites === 1) {
-                palpites.textContent = 'Palpites anteriores: ';
-            }
-            palpites.textContent += palpiteUsuario + ' ';
-
-            //Acerto
-            if (palpiteUsuario === numeroAleatorio) {
-                ultimoResultado.textContent = 'Parabéns! Você acertou!';
-                ultimoResultado.style.backgroundColor = 'green';
-                baixoOuAlto.textContent = '';
-                configFimDeJogo();
-            }
-
-            //Limite Palpites
-            else if (contagemPalpites === 10) {
-                ultimoResultado.textContent = '!!!FIM DE JOGO!!!';
-                baixoOuAlto.textContent = '';
-                configFimDeJogo();
-            }
-
-            //Erro
-            else {
-                ultimoResultado.textContent = 'Errado!';
-                ultimoResultado.style.backgroundColor = '';
-
-                if(palpiteUsuario < numeroAleatorio) {
-                    baixoOuAlto.textContent = 'Seu palpite está muito baixo!';
-                } 
-
-                else if(palpiteUsuario > numeroAleatorio) {
-                    baixoOuAlto.textContent = 'Seu palpite está muito alto!';
-                }
-            }
-
-            //Contagens
-            contagemPalpites++;
-            campoPalpite.value = '';
-            campoPalpite.focus();
-        }
-
-        //Ler botão "Enviar Palpite"
-        envioPalpite.addEventListener('click', conferirPalpite);
-
-        //Function - Fim de Jogo
-        function configFimDeJogo() {
-            campoPalpite.disabled = true;
-            envioPalpite.disabled = true;
-            botaoReinicio = document.createElement('button');
-            botaoReinicio.textContent = 'Iniciar novo jogo';
-            document.body.appendChild(botaoReinicio);
-            botaoReinicio.addEventListener('click', reiniciarJogo);
-        }
-
-        //Fuction - Reiniciar Jogo
-        function reiniciarJogo() {
-            contagemPalpites = 1;
-
-            var reiniciarParas = document.querySelectorAll('.resultadoParas p');
-            for (var i = 0 ; i < reiniciarParas.length ; i++) {
-                reiniciarParas[i].textContent = '';
-            }
-
-            botaoReinicio.parentNode.removeChild(botaoReinicio);
-
-            campoPalpite.disabled = false;
-            envioPalpite.disabled = false;
-            campoPalpite.value = '';
-            campoPalpite.focus();
-
-            ultimoResultado.style.backgroundColor = 'white';
-
-            numeroAleatorio = Math.floor(Math.random() * 100) + 1;
-        }
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </html>
