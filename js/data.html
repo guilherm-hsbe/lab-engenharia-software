@@ -12,29 +12,31 @@
       <div class="row">
         <div class="col"></div>
 
-        <div class="card border-0 rounded-4 shadow-lg col-4 p-3">
+        <div class="card border-0 rounded-4 shadow-lg col p-3">
           <a href="/index.html" class="btn btn-sm btn-light opacity-75 rounded-5">Voltar</a>
 
           <div class="card-body">
             <h4 class="card-title text-center">Data</h4>
           </div>
 
-          <script type="text/javascript">
-            //Método 01
-            document.write("Modelo 01:"+"<br>");
-                let date = new Date();
-                let options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-                  document.write(date.toLocaleDateString('pt-BR', options));
-  
-              document.write("<br>"+"<br>");
-  
-              //Método 02
-              document.write("Modelo 02:"+"<br>");
-                var data = new Date();
-                  document.write(data);
-                var dia = data.getDate();
-                  document.write("<br>"+dia);
-          </script>
+          <div class="container shadow rounded-5 bg-light p-3">
+            <script type="text/javascript">
+              //Método 01
+              document.write("Modelo 01:"+"<br>");
+                  let date = new Date();
+                  let options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+                    document.write(date.toLocaleDateString('pt-BR', options));
+    
+                document.write("<br>"+"<br>");
+    
+                //Método 02
+                document.write("Modelo 02:"+"<br>");
+                  var data = new Date();
+                    document.write(data);
+                  var dia = data.getDate();
+                    document.write("<br>"+dia);
+            </script>
+          </div>
         </div>
 
         <div class="col"></div>
