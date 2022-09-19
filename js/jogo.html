@@ -12,6 +12,21 @@
                 color: white;
                 padding: 3px;
             }
+
+            button{
+                margin: auto; 
+                width: 50%;
+                border-style: hidden;
+                border-radius: 0.8rem;
+                padding: 0.4rem 2rem;
+                box-shadow: 3px 3px 3px rgb(218, 218, 218);
+                text-align: center;
+            }
+
+            button:hover{
+                background-color: rgb(40, 163, 245);
+                color: white;
+            }
         </style>
     </head>
 
@@ -38,11 +53,11 @@
                         <input type="submit" value="Enviar palpite" class="envioPalpite form-control btn btn-primary mt-4">
                     </div>
 
-                    <div class="resultadoParas shadow-sm rounded-3 p-2 mt-4">
+                    <div class="resultadoParas rounded-3 p-2 mt-4">
                         <p class="palpites fw-light ms-2"></p>
                         <p class="ultimoResultado fw-semibold ms-2"></p>
                         <p class="baixoOuAlto ms-2"></p>
-                        <p class="botaoReinicio ms-2"></p>
+                        <p id="botaoReinicio"></p>
                     </div>
 
                     <!-- #SCRIPT -->
@@ -55,7 +70,6 @@
                         var palpites = document.querySelector('.palpites');
                         var ultimoResultado = document.querySelector('.ultimoResultado');
                         var baixoOuAlto = document.querySelector('.baixoOuAlto');
-                        var botaoReinicio = document.querySelector('.botaoReinicio');
                 
                             //Referência texto e envio
                         var envioPalpite = document.querySelector('.envioPalpite');
@@ -117,13 +131,13 @@
                         function configFimDeJogo() {
                             campoPalpite.disabled = true;
                             envioPalpite.disabled = true;
-                            botaoReinicio = document.createElement('button');
+                            botaoReinicio = document.getElementById('button');                          
                             botaoReinicio.textContent = 'Iniciar novo Jogo';
                             document.body.appendChild(botaoReinicio);
-                            botaoReinicio.addEventListener('click', reiniciarJogo);
+                            botaoReinicio.addEventListener('click', reiniciarJogo);                        
                         }
                 
-                        //Fuction - Reiniciar Jogo
+                        //Function - Reiniciar Jogo
                         function reiniciarJogo() {
                             contagemPalpites = 1;
                 
