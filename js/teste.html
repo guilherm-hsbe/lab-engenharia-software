@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="pergunta">
+        <label for="ouve" class="label">Digite um número</label>
+        <input type="text" id="ouve" class="digitavel">
+        <button id="add" class="botaoverificar">Verificar</button>
+        <button class="botaovolta"><a class="botaovolta-clicavel" href="index.html">Voltar</a></button>
+    </div>
+
+    <ul id="minhaLista" class="tabela"> </ul> 
+    
+    <script type="text/javascript">
+        var array = new Array();
+        document.getElementById("add").addEventListener("click",function(){
+           array.push(document.getElementById("ouve").value);
+           let aux1 = document.createElement("li");
+           let aux2 = document.createTextNode(array[array.length-1]);
+           aux1.appendChild(aux2);
+           document.getElementById("minhaLista").appendChild(aux1);
+        });
+    </script>
+</body>
+</html>

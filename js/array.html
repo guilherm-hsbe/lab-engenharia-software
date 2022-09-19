@@ -20,20 +20,22 @@
                     <h4 class="card-title text-center">Array</h4>
                 </div>
                     
-                <form>
+                <div>
                     <label for="campoTexto" class="form-label">Informe uma frase ou palavra</label>
                     <textarea type="text" id="campoTexto" class="form-control"></textarea>
-                    <input type="submit" value="Enviar" id="add" class="form-control btn btn-primary mt-4">
-                </form>
+                    <button id="add" class="form-control btn btn-primary mt-4">Enviar</button>
+                </div>
 
-                <ul class="mt-2" id="minhaLista"></ul>
+                <div class="container mt-2 shadow-lg p-2 rounded-4 bg-light">  
+                    <ul style="color:blueviolet" id="minhaLista"></ul>
+                </div>  
             </div>
   
             <div class="col"></div>
         </div> 
     </div>
 
-    <script type="text/javaScript">
+    <script type="text/javascript">
         var array = new Array();
         document.getElementById("add").addEventListener("click",function(){
            array.push(document.getElementById("campoTexto").value);
