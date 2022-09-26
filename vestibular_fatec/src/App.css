@@ -33,11 +33,16 @@
   color: rgb(49, 49, 49);
 }
 
+.App-header #inscricoes{
+  font-weight: 500;
+  color: #242424;
+}
+
 .App-link {
   color: #f1f1f1;
   background-color: #bbbbbb;
   padding: 0.4rem;
-  border-radius: 15px;
+  border-radius: 10px;
   text-decoration: none;
 }
 .App-link:hover{
@@ -45,7 +50,7 @@
   color: rgb(70, 70, 70)
 }
 
-.meioPagina{
+.meio-pagina{
   background-color: #dfdfdf;
   align-items: center;
   justify-content: center;
@@ -54,16 +59,13 @@
   font-size: 1.4rem;
 }
 
-.listaCursos{
+.meio-pagina div{
   padding: 0.2rem 1.3rem;
-  margin-top: 2rem;
+  margin: 2rem;
   background-color: #eeeeee;
   box-shadow: 5px 5px 20px #c2c2c2;
   border-radius: 15px;
-}
-
-.listaCursos:hover{
-  background-color: #e9e9e9;
+  width: 20vw;
 }
 
 p{
@@ -72,6 +74,7 @@ p{
 }
 
 li{
-  list-style-type: circle;
-  color:#ff5e5e
+  list-style-type: none;
+  color:#b32323;
+  font-weight: 600;
 }
