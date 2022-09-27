@@ -27,6 +27,11 @@
                 background-color: rgb(40, 163, 245);
                 color: white;
             }
+
+            #resultado button{
+                display: flex;
+                align-content: center;
+            }
         </style>
     </head>
 
@@ -53,11 +58,10 @@
                         <input type="submit" value="Enviar palpite" class="envioPalpite form-control btn btn-primary mt-4">
                     </div>
 
-                    <div class="resultadoParas rounded-3 p-2 mt-4">
+                    <div class="resultadoParas rounded-3 p-2 mt-4" id="resultado">
                         <p class="palpites fw-light ms-2"></p>
                         <p class="ultimoResultado fw-semibold ms-2"></p>
                         <p class="baixoOuAlto ms-2"></p>
-                        <p id="botaoReinicio"></p>
                     </div>
 
                     <!-- #SCRIPT -->
@@ -78,6 +82,7 @@
                             //Contagem dos palpites e botão reiniciar
                         var contagemPalpites = 1;
                         var botaoReinicio;
+                        campoPalpite.focus()
                 
                         //Function - Conferir Palpite
                         function conferirPalpite() {
@@ -131,9 +136,9 @@
                         function configFimDeJogo() {
                             campoPalpite.disabled = true;
                             envioPalpite.disabled = true;
-                            botaoReinicio = document.getElementById('button');                          
+                            botaoReinicio = document.createElement('button');                          
                             botaoReinicio.textContent = 'Iniciar novo Jogo';
-                            document.body.appendChild(botaoReinicio);
+                            document.getElementById('resultado').appendChild(botaoReinicio);
                             botaoReinicio.addEventListener('click', reiniciarJogo);                        
                         }
                 
