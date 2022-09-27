@@ -36,24 +36,29 @@
     </div>
 
     <script type="text/javascript">
-        var lista = new Array();
+        var arry = new Array();
+        let lista = document.getElementById("minhaLista");
         document.getElementById("add").addEventListener("click",function(){
-            lista.push(document.getElementById("campoTexto").value);
-            lista.sort();
+            arry.push(document.getElementById("ouve").value);
+            arry.sort();
 
-            var ul = document.getElementsByTagName('ul')[0];
-            var li = lista.getElementsByTagName('li');
-            ul.removeChild(li[2]);
+            console.log(arry);
 
-            for(i=0;i<lista.length;i++){
-                let aux1 = document.createElement("li");
-                let aux2 = document.createTextNode(array[array.length-1]);
+            for(i=0;i<arry.length;i++){
+                    if(typeof lista.children[i] != "undefined"){
+                        lista.removeChild(lista.children[i]);
+                    }
+                    
+            }
+                
+            for(i=0;i<arry.length;i++){
+                let ax1 = document.createElement("li");
+                let ax2 = document.createTextNode(arry[i]);
+                ax1.appendChild(ax2);
+                document.getElementById("minhaLista").appendChild(ax1);
 
-                aux1.appendChild(aux2);
-                document.getElementById("minhaLista").appendChild(aux1);  
-            }          
-           
-            console.log(aux1, aux2, lista);   
+            }
+   
         });
     </script>
     
