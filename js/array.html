@@ -39,26 +39,21 @@
         var arry = new Array();
         let lista = document.getElementById("minhaLista");
         document.getElementById("add").addEventListener("click",function(){
-            arry.push(document.getElementById("add").value);
+            arry.push(document.getElementById("campoTexto").value);
             arry.sort();
-
-            console.log(arry);
 
             for(i=0;i<arry.length;i++){
                     if(typeof lista.children[i] != "undefined"){
                         lista.removeChild(lista.children[i]);
-                    }
-                    
+                    }        
             }
                 
-            for(i=0;i<arry.length;i++){
+            for(x=0;x<arry.length;x++){
                 let ax1 = document.createElement("li");
-                let ax2 = document.createTextNode(arry[i]);
+                let ax2 = document.createTextNode(arry[x]);
                 ax1.appendChild(ax2);
                 document.getElementById("minhaLista").appendChild(ax1);
-
             }
-   
         });
     </script>
     
