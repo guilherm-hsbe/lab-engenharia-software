@@ -1,25 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Titulo from './Titulo';
+import Titulo2 from './Titulo2';
+import Tabuada from './Tabuada';
+import Cores from './Cores';
 
+// parâmetro para função em tabuada.js
+let n = prompt("Digite um número","5");
+
+// função principal
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+      <div>
+        <Cores />
+        <Titulo titulo="Fatec"
+                texto="Faculdade de Tecnologia de Presidente Prudente"
+                link="https://www.fatecpp.edu.br"
+        />
+        <Titulo2 />
+        <Tabuada numero = {n}/>
+      </div>
+    );
 }
 
 export default App;
