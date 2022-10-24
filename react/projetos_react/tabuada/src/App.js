@@ -6,6 +6,9 @@ import Titulo2 from './Titulo2';
 import Tabuada from './Tabuada';
 import Cores from './Cores';
 
+import Mensagem from './Mensagem';
+import {Header,Header2} from './Header';
+
 // parâmetro para função em tabuada.js
 let n = prompt("Digite um número","5");
 
@@ -20,6 +23,11 @@ function App() {
         />
         <Titulo2 />
         <Tabuada numero = {n}/>
+
+        <Mensagem></Mensagem>
+
+        <Header favcol="Laranja"></Header>
+        <Header2></Header2>
       </div>
     );
 }
