@@ -6,7 +6,11 @@ class Mensagem extends React.Component {
     }
     render() {
         return(
-            <button onClick={()=>this.exibir("Olá Mundo!")}>Clique</button>
+            <div>
+                <hr></hr>
+                <h3>Mensagem</h3>
+                <button onClick={()=>this.exibir("Olá Mundo!")}>Clique</button>
+            </div>
         );
     }
 }
