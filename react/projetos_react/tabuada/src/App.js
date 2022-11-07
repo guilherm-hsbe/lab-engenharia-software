@@ -7,8 +7,8 @@ import Tabuada from './Tabuada';
 import Cores from './Cores';
 
 import Mensagem from './Mensagem';
-import {Header,Header2} from './Header';
-import {ShouldUpdate,BeforeUpdate,DidUpdate} from './Updating';
+import { Header, Header2 } from './Header';
+import { ShouldUpdate, BeforeUpdate, DidUpdate } from './Updating';
 import Container from './Container';
 import TodoList from './TodoList';
 
@@ -41,22 +41,22 @@ import TodoList from './TodoList';
 //     );
 // }
 
-class App extends React.Component{
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-      itens:[],
-      text:''
+      itens: [],
+      text: ''
     }
   }
 
-  handleChange = (e) =>{
-    this.setState({text: e.target.value})
+  handleChange = (e) => {
+    this.setState({ text: e.target.value })
   }
 
-  handleSubmit = (e) =>{
+  handleSubmit = (e) => {
     e.preventDefault();
-    if(!this.state.text.length){
+    if (!this.state.text.length) {
       return;
     }
 
@@ -65,20 +65,20 @@ class App extends React.Component{
       text: this.state.text
     }
 
-    this.setState(state=>({
-      itens:state.itens.concat(item),
-      text:''
+    this.setState(state => ({
+      itens: state.itens.concat(item),
+      text: ''
     }))
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <h3>Tarefas</h3>
         <TodoList itens={this.state.itens} />
         <br />
         <form onSubmit={this.handleSubmit}>
-          <input id="new-todo" onChange={this.handleChange} value={this.state.text}/>
+          <input id="new-todo" onChange={this.handleChange} value={this.state.text} />
           <button>Inserir</button>
         </form>
       </div>
