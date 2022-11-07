@@ -77,7 +77,7 @@ class App extends React.Component{
         <h3>Tarefas</h3>
         <TodoList itens={this.state.itens} />
         <br />
-        <form onSubmit={history.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <input id="new-todo" onChange={this.handleChange} value={this.state.text}/>
           <button>Inserir</button>
         </form>

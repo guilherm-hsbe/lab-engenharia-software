@@ -1,14 +1,14 @@
 import React from "react";
 
 class Contador extends React.Component {
-    constructor(pros) {
+    constructor(props) {
         super(props);
         this.state = {segundos:0};
     }
 
     render(){
         return(
-            <div><p>Segundos: {this.state.segundos}</p></div>
+            <div><br></br><p>Segundos: {this.state.segundos}</p></div>
         );
     }
 
