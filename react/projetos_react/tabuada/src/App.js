@@ -61,7 +61,7 @@ class App extends React.Component{
     }
 
     const item = {
-      id: Date.now();
+      id: Date.now(),
       text: this.state.text
     }
 
