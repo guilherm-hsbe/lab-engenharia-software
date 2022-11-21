@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+import Cart from "./components/Cart";
+import Products from "./components/Products";
 
 /**
  * Função Chamar API
@@ -10,13 +13,13 @@ import { useEffect, useState } from "react";
  */
 
 async function api(url, method, body = undefined) {
-  return await fetch(`http://localhost:4000${url}` {
+  return await fetch(`http://localhost:4000${url}`, {
     body: body !== undefined ? JSON.stringify(body) : body,
     method: method,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-    };
+    },
   }).then((res) => res.json);
 }
 
@@ -67,7 +70,7 @@ function App() {
   /**
    * Altera unidades do produto
    */
-  function setProduct(produtct, change) {
+  function setProduct(product, change) {
     const products = cart.filter(({ id }) => {
       return id !== product.id;
     });
@@ -82,23 +85,47 @@ function App() {
     }
   }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  /**
+   * Adiciona Produto no Carrinho
+   */
+  function addProduct(product) {
+    product.units = 1;
+    setCart(() => [...cart, product]);
+
+    setProducts(() => 
+      products.filter(({ id }) => {
+        return id !== product.id;
+      })
+    );
+  }
+
+  useEffect(() => {
+    getProducts(); //Busca Produtos ao Carregar a Pagina
+  }, []);
+
+  /*Elemento main personalizado com CSS */
+  const SMain = styled.main`
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr;
+  `;
+
+  return(
+    <SMain>
+      <Cart 
+        products={cart}
+        onChange={setProducts}
+        onClick={submitCart}
+        isLoading={cartLoading}
+      />
+      <Products
+        products={products}
+        onClick={addProduct}
+        isLoading={productsLoading}
+      />
+    </SMain>
   );
 }
 
