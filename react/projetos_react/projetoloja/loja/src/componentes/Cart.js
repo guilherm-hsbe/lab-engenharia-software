@@ -68,7 +68,7 @@ function CartProduct({ product, onChange, isLoading }) {
 const SSection = styled.section`
     padding: 20px;
     display: grid;
-    grid-template-colums: 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr 50px;
     gap: 20px;
 `;

@@ -6,7 +6,7 @@ const SDiv = styled.div`
     padding: 10px;
     border-radius: 10px;
     background: #f2f2f2;
-    cusor: pointer;
+    cursor: pointer;
 
     img {
         width: 100%;
@@ -66,8 +66,8 @@ function Products({ products, onClick, isLoading = false }) {
         <SSection>
             {isLoading //Verifica loading}
             ? "Carregando..."
-            : products.lenght > 0 //Verifica se existem produtos
-            ? products.maps((product) => (
+            : products.length > 0 //Verifica se existem produtos
+            ? products.map((product) => (
                 <Product key={product.id} product={product} onClick={onClick} />
             ))
             : "Nenhum produto encontrado!"}

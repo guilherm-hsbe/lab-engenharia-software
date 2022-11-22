@@ -1,14 +1,14 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Cart from "./components/Cart";
-import Products from "./components/Products";
+import Cart from "./componentes/Cart";
+import Products from "./componentes/Products";
 
 /**
  * Função Chamar API
  * @param {string} url Caminho da Função
- * @param {String} method Método da Função
+ * @param {string} method Método da Função
  * @returns  Objeto Resposta
  */
 
@@ -20,7 +20,7 @@ async function api(url, method, body = undefined) {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json);
+  }).then((res) => res.json());
 }
 
 /**
@@ -116,7 +116,7 @@ function App() {
     <SMain>
       <Cart 
         products={cart}
-        onChange={setProducts}
+        onChange={setProduct}
         onClick={submitCart}
         isLoading={cartLoading}
       />

@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -20,7 +20,7 @@ async function api(url, method, body = undefined) {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json);
+  }).then((res) => res.json());
 }
 
 /**

@@ -1,4 +1,4 @@
-import styled from "styled-componentes";
+import styled from "styled-components";
 
 // Botão Personalizado CSS
 const SButton = styled.button`
