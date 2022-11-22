@@ -116,7 +116,7 @@ function App() {
     <SMain>
       <Cart 
         products={cart}
-        onChange={setProducts}
+        onChange={setProduct}
         onClick={submitCart}
         isLoading={cartLoading}
       />
