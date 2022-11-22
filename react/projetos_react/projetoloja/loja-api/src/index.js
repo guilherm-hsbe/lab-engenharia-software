@@ -5,13 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // ORIGINAL
-require("dotenv/config");
-const app = require("./app");
+// require("dotenv/config");
+// const app = require("./app");
 
-const PORT = process.env.PORT || 3333;
-app.listen(PORT, () => {
-  console.log(`API:${PORT}`);
-});
+// const PORT = process.env.PORT || 3333;
+// app.listen(PORT, () => {
+//   console.log(`API:${PORT}`);
+// });
 // ----------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
