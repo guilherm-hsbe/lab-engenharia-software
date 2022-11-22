@@ -2,13 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Cart from "./components/Cart";
-import Products from "./components/Products";
+import Cart from "./componentes/Cart";
+import Products from "./componentes/Products";
 
 /**
  * Função Chamar API
  * @param {string} url Caminho da Função
- * @param {String} method Método da Função
+ * @param {string} method Método da Função
  * @returns  Objeto Resposta
  */
 

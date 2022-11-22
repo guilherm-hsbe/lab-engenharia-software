@@ -88,7 +88,7 @@ function Cart({ products, onChange, onClick, isLoading = false}) {
     return (
         <SSection>
             <SUl>
-                {products.map((produtct) => (
+                {products.map((product) => (
                     <CartProduct
                         key={product.id}
                         product={product}
