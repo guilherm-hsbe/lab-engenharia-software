@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* CUSTOM */
+
+/**  Geral --------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  background-color: white;
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 400px;
+  background-color: #f1f3f4;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 2px 30px #0000003e;
+}
+
+/**  Barra Superior --------------------- */
+.display{
+  padding: 16px;
+  text-align: right;
+  background-color: #f1f3f4;
+  color: #202124;
+  font-size: 24px;
+  font-weight: 300;
+
+}
+
+.display span {
+  font-size: 14px;
+  color: #3f3f3f;
+}
+
+/**  Botões */
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  color: #202124;
+  font-size: 20px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0,9;
+  color: #4285F4;
+  transition: 0.2s;
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+/**  Barra de Operações --------------------- */
+.operators {
+  display: flex;
+}
+
+.operators button { 
+  flex: 1 1 0%;
+  background-color: #DADCE0;
+  font-weight: 700;
+}
+
+.operators button:hover { 
+  background-color: #4285F4 !important;
+  color: #ffffff !important;
+  transition: 0.1s;
+}
+
+/**  Inferior --------------------- */
+.digits {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.digits button {
+  flex: 1 1 33.333%;
+  max-width: 33.333%;
+  background-color: #f1f3f4;
+}

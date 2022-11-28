@@ -15,7 +15,7 @@ const SLi = styled.li`
 // Bloco Informativo CSS
 const SDivInfo = styled.div`
     p {
-        font-size: 19px;
+        font-size: 16px;
         margin-bottom: 2px;
     }
 
@@ -30,7 +30,7 @@ const SDivUnits = styled.div`
     width: 86px;
     display: flex;
     justify-content: space-between;
-    align-itens: center;
+    align-items: center;
 
     button {
         padding: 5px 10px;
@@ -81,7 +81,7 @@ const SUl = styled.ul`
 /**
  * Listagem de Produtos no Carrinho
  * @param {Object[]} products Produtos para listagem
- * @param {Fcuntion} onClick Função de Finzalização
+ * @param {Function} onClick Função de Finzalização
  * @param {Boolean} isLoading Status de Loading
  */
 function Cart({ products, onChange, onClick, isLoading = false}) {

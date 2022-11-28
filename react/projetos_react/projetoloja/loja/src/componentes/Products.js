@@ -25,7 +25,7 @@ const SDivInfo = styled.div`
 
     span {
         font-size: 20px;
-        font-wight: bold;
+        font-weight: bold;
     }
 `;
 
@@ -51,9 +51,9 @@ const SSection = styled.section`
     overflow: auto;
     padding: 20px;
     display: grid;
-    grid-template-colums: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: 230px;
-    gap: 20px
+    gap: 20px;
 `;
 
 /**

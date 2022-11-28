@@ -23,7 +23,7 @@ function Button({ children, onClick, isLoading = false}) {
         <SButton onClick={onClick} disabled={isLoading}>
             {isLoading ? "Carregando..." : children }
         </SButton>
-    )
+    );
 }
 
 export default Button;
