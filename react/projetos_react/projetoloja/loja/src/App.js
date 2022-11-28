@@ -62,7 +62,7 @@ function App() {
     setCartLoading(true); //Ativa loading do carrinho
     await apiSubmitCart(cart); //Salva o carrinho
     setCart([]); //Limpa o carrinho
-    setCartLoading(false); //Desativa loadng carrinho
+    setCartLoading(false); //Desativa loading carrinho
 
     getProducts(); //Busca os produtos novamente
   }
